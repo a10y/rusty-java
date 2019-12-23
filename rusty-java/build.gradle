@@ -1,0 +1,15 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+compileJava {
+    options.compilerArgs += ['-h', "${buildDir}/headers"]
+}
+
+application {
+    mainClassName = 'FFITest'
+    applicationDefaultJvmArgs = ["-Djava.library.path=${project(':mynativelib').projectDir}/target/debug"]
+}
+
+tasks.run.dependsOn project(':mynativelib').tasks.buildNativeLib

@@ -1,0 +1,4 @@
+rootProject.name = 'rusty-java-root'
+
+include 'rusty-java'
+include 'mynativelib'
